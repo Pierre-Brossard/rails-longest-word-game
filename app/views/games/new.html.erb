@@ -1,0 +1,13 @@
+<h1>test</h1>
+<ul>
+  <% @letterArray.each do |letter| %>
+    <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<%= form_with url: "/score", method: :post, :html => {:"data-turbo" => 'false'} do |form| %>
+  <%= form.label :word, "Your word:" %>
+  <%= form.text_field :word %>
+  <%= form.submit "Submit" %>
+  <%= form.text_field :letterList, value: @letterArray, type: "hidden" %>
+<% end %>
